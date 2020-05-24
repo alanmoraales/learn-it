@@ -2,17 +2,13 @@ body {
     position: relative;
 }
 
-html {
-    height: 100%;
-}
-
 .hero {
     background-image: url("../img/hero.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 100%;
+    height: 700px;
 }
 
 .hero-shadow {
@@ -48,9 +44,28 @@ html {
 }
 
 .content {
-    padding: 4em;
+    padding: 2em;
 }
 
-#variables {
+.apartado {
     padding-top: 4em;
+}
+
+#tabla-operadores {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    .hero {
+        height: 100%;
+    }
+    
+    .content {
+        padding: 4em;
+    }
 }

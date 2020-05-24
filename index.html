@@ -8,20 +8,28 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="highlight/styles/github.css">
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 
     <title>LearnIt | Dart</title>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#mynavbar">
     <div class="hero">
         <div class="hero-shadow">
             <div id="hero-title">Dart</div>
             <div id="hero-sub">LearnIt</div>
             <div id="hero-des"> un lenguaje multiparadigma nacido para simplificar la creación de webs más complejas</div>
-            <div id="hero-sub">baja para aprender más</div>
+            <a id="hero-sub" onclick="scrollToHistoria()">baja para aprender más</a>
         </div>
     </div>
 
-    <nav id="navbar" class="navbar sticky-top navbar-dark bg-dark">
+    <nav id="mynavbar" class="navbar sticky-top navbar-dark bg-dark navbar-expand-md">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#links" aria-controls="links" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,19 +39,19 @@
         </a>
 
         <div class="collapse navbar-collapse" id="links">
-            <div class="navbar-nav text-center">
-                <a class="nav-item nav-link" href="#historia">Historia</a>
-                <a class="nav-item nav-link" href="#variables">Variables y Tipos</a>
-                <a class="nav-item nav-link" href="#expresiones">Expresiones</a>
-                <a class="nav-item nav-link" href="#estructuras">Extructuras de Control</a>
-                <a class="nav-item nav-link" href="#subprogramas">Subprogramas</a>
-                <a class="nav-item nav-link" href="#aplicacion">Aplicación de Ejemplo</a>
+            <div class="navbar-nav ml-auto text-center">
+                <a class="nav-item nav-link" onclick="scrollToHistoria()">Historia</a>
+                <a class="nav-item nav-link" onclick="scrollToVariables()">Variables y Tipos</a>
+                <a class="nav-item nav-link" onclick="scrollToExpresiones()">Expresiones</a>
+                <a class="nav-item nav-link" onclick="scrollToEstructuras()">Estructuras de Control</a>
+                <a class="nav-item nav-link" onclick="scrollToSubprogramas()">Subprogramas</a>
+                <a class="nav-item nav-link" onclick="scrollToAplicacion()">Aplicación de Ejemplo</a>
             </div>
         </div>
     </nav>
 
-    <div class="content" data-target="#navbar">
-        <div id="historia">
+    <div class="content" >
+        <div id="historia" class="apartado">
             <h3>Historia</h3>
             <p>
                 Dart fue revelado en la conferencia GOTO en Aarhus, Dinamarca, del 10 al 12 de octubre del 2011. El proyecto fue fundado por Lars Bak y Kasper Lund. Los dos fundadores utilizan mucho JavaScript, mayormente utilizado para desarrollo web. La intención de Google con la creación de Dart es simplificar la creación de aplicaciones web mas complejas. Siguen mejorando el uso de JavaScript, pero eso no los detiene en encontrar nuevas soluciones. Dart es un lenguaje multiparadigma: programación funcional, programación imperativa, programación orientada a objetos y programación reflexiva. Permite el desarrollo de aplicaciones web, pero también permite desarrollo de aplicaciones para Android, iOS, macOS, y se encuentra en desarrollo la habilidad de realizar aplicaciones para Linux y Windows. 
@@ -68,7 +76,7 @@
               </ul>
         </div>
 
-        <div id="variables">
+        <div id="variables" class="apartado">
             <h3>Variables y Tipos</h3>
             <p>El lenguaje Dart tiene soporte para los siguientes tipos de datos básicos:</p>
             <dl>
@@ -98,20 +106,186 @@
             </ul>
         </div>
 
-        <div id="expresiones">
-            
+        <div id="expresiones" class="apartado">
+            <h3>Expresiones</h3>
+            <p>El lenguaje Dart posee expresiones aritmeticas, relacionales y booleanas. A continuación se muestran unas tablas con todos los operadores, sus reglas de precedencia y asociatividad, así como la sintaxis de asignación.</p>
+            <h5>Tabla de operadores</h5>
+            <div style="overflow-x:auto;">
+                <table class="pure-table" id="tabla-operadores">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Operador</th>
+                            <th>Asociatividad</th>
+                            <th>Precedencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="pure-table-odd">
+                            <td>unary postfix</td>
+                            <td><pre><code>expr++   expr--   ()   []   .   ?.</code></pre></td>
+                            <td>Ninguna</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>unary prefix</td>
+                            <td><pre><code>-expr   !expr   ~expr   ++expr   --expr   <b>await</b> expr </code></pre></td>
+                            <td>Ninguna</td>
+                            <td>15</td>
+                        </tr>
+                        <tr class="pure-table-odd">
+                            <td>multiplicative</td>
+                            <td><pre><code>*   /   %   ~/</code></pre></td>
+                            <td>Izquierda</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>additive</td>
+                            <td><pre><code>+   -</code></pre></td>
+                            <td>Izquierda</td>
+                            <td>13</td>
+                        </tr>
+                        <tr class="pure-table-odd">
+                            <td>shift</td>
+                            <td><pre><code><<   >>   >>></code></pre></td>
+                            <td>Izquierda</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>bitwise AND</td>
+                            <td><pre><code>&</code></pre></td>
+                            <td>Izquierda</td>
+                            <td>11</td>
+                        </tr>
+                        <tr class="pure-table-odd">
+                            <td>bitwise XOR</td>
+                            <td><pre><code>^</code></pre></td>
+                            <td>Izquierda</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>bitwise OR</td>
+                            <td><pre><code>|</code></pre></td>
+                            <td>Izquierda</td>
+                            <td>9</td>
+                        </tr>
+                        <tr class="pure-table-odd">
+                            <td>relational and type test</td>
+                            <td><pre><code>>=   >   <=   <   as   is   is!</code></pre></td>
+                            <td>Ninguna</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>equality</td>
+                            <td><pre><code>==   !=</code></pre></td>
+                            <td>Ninguna</td>
+                            <td>7</td>
+                        </tr>
+                        <tr class="pure-table-odd">
+                            <td>Logical AND</td>
+                            <td><pre><code>&&</code></pre></td>
+                            <td>Izquierda/td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>logical OR</td>
+                            <td><pre><code>||</code></pre></td>
+                            <td>Izquierda</td>
+                            <td>5</td>
+                        </tr>
+                        <tr class="pure-table-odd">
+                            <td>if null</td>
+                            <td><pre><code>??</code></pre></td>
+                            <td>Izquierda</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>conditional</td>
+                            <td><pre><code>expr1 ? expr2 : expr3</code></pre></td>
+                            <td>Derecha</td>
+                            <td>3</td>
+                        </tr>
+                        <tr class="pure-table-odd">
+                            <td>cascade</td>
+                            <td><pre><code>..</code></pre></td>
+                            <td>Izquierdatd</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>assignment</td>
+                            <td><pre><code>=   *=   /=   +=   -=   &=  ^=  <b>etc.</b></code></pre></td>
+                            <td>Derecha</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <h5>Sintaxis de asignación</h5>
+            <ul>
+                <li><code><var>assignmentOperator</var> ::= '=' | <var>compoundAssignmentOperator</var></code></li>
+                <li><code><var>compoundAssignmentOperator</var> ::= <var>operator</var>'='</code></li>
+            </ul>
+            <p>Por ejemplo: <code><var>a</var> += <var>b</var></code></p>
         </div>
 
-        <div id="estructuras"> 
-
+        <div id="estructura" class="apartado"> 
+            <h3>Estructuras de Control de Flujo</h3>
+            <p>Puedes controlar el flujo de tu código en Dart usando alguna de las siguintes sentencias:</p>
+            <ul>
+                <li><code>if</code> and <code>else</code></li>
+                <li><code>for</code> loops</li>
+                <li><code>while</code> and <code>do-while</code> loops</li>
+                <li><code>break</code> and <code>continue</code></li>
+                <li><code>switch</code> and <code>case</code></li>
+                <li><code>assert</code></li>
+            </ul>
+            <h5>Sentencia para selección múltiple</h5>
+            <p>La condición múltiple en Dart puede realizarse mediante la sentencia <code>switch</code>, su sintaxis es la siguiente:</p>
+            <pre><code>switch (command) { // 'switch' (valor a evaluar) { casos }
+    case 'CLOSED': // 'case' (valor) para definir un caso 
+        executeClosed();
+        break; // se debe usar 'break' al final de cada caso
+    case 'PENDING':
+        executePending();
+        break;
+    case 'APPROVED':
+        executeApproved();
+        break;
+    case 'DENIED':
+        executeDenied();
+        break;
+    case 'OPEN':
+        executeOpen();
+        break;
+    default: // un caso general (opcional), si el valor no coincide con ninguno de lo casos
+        executeUnknown();
+}</code></pre>
+            <h5>Sentencia de iteración con condición postest</h5>
+            <p><code>do-while</code> es la sentencia que evalua la condición después del ciclo. Su sintanxis es la siguiente:</p>
+            <pre><code>do { // 'do' { contenido } 'while' (condición)
+    printLine(); 
+} while (!atEndOfPage());</code></pre>
         </div>
 
-        <div id="Subprogramas">
-
+        <div id="subprogramas" class="apartado">
+            <h3>Subprogramas</h3>
+            <p>La sintaxis para la declaración y definición de funciones es la siguiente:</p>
+            <ul>
+                <li><code><var>functionSignature</var> ::= <var>metadata</var> <var>type</var>? <var>identifier</var> <var>formalParameterPart</var></code></li>
+                <li><code><var>formalParameterPart</var> ::= <var>typeParameters</var>? <var>formalParameterList</var></code></li>
+                <li><code><var>functionBody</var> ::= <b>async</b>? '=>' <var>expression</var>';' | (<b>async</b> | <b>async</b>'*' | <b>sync</b>'*')? <var>block</var></code></li>
+                <li><code><var>block</var> ::= '{' <var>statments</var> '}'</code></li>
+            </ul>
+            <h6>Métodos de paso de parámetros</h6>
+            <ul>
+                <li>Los tipos de datos primitivos utilizan paso por valor.</li>
+                <li>Los objetos utilizan paso por referencia.</li>
+            </ul>
         </div>
 
-        <div id="aplicacion">
-
+        <div id="aplicacion" class="apartado">
+            <h3>Aplicación de Ejemplo</h3>
         </div>
         
     </div>
