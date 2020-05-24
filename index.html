@@ -1,64 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="./css/index.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <title>LearnIt | Dart</title>
-</head>
-<body>
-    <div class="nav-grid">
-        <div class="logo">LearnIt</div>
-        <div class="menu-icon">
-            <span class="iconify" data-icon="mdi:menu" data-inline="false"></span>
-        </div>
-    </div>
+  </head>
+  <body>
     <div class="hero">
-        <div class="hero-grid">
-            <div class="hero-title">Dart</div>
-            <div class="hero-description">
-                Es un lenguaje de programación multiparadigma. Desarrollado para simplificar la creación de aplicaciones web mas complejas.
-            </div>
-            <div class="button"><a>Historia</a></div>
-            <div class="button" id="web-button"><a href="https://dart.dev/">Web Oficial</a></div>
+        <div class="hero-shadow">
+            <div id="hero-title">Dart</div>
+            <div id="hero-sub">LearnIt</div>
+            <div id="hero-des"> un lenguaje multiparadigma nacido para simplificar la creación de webs más complejas</div>
+            <div id="hero-sub">baja para aprender más</div>
         </div>
     </div>
-    <div class="content">
-        <div class="title">Historia</div>
-        <div class="text">
-            Dart fue revelado en la conferencia GOTO en Aarhus, Dinamarca, del 10 al 12 de octubre del 2011. El proyecto fue fundado por Lars Bak y Kasper Lund. Los dos fundadores utilizan mucho Javascript, mayormente utilizado para desarrollo web. La intención de Google con la creacionde Dart es simplificar la creación de aplicaciones web mas complejas. Siguen mejorando el uso de JavaScript, pero eso no los detiene en encontrar nuevas soluciones. Dart es un lenguaje multiparadigma: programación funcional, programación imperativa, programación orientada a objetos y programación reflexiva. Permite el desarrollo de aplicaciones web,  pero también permite desarrollo de aplicaciones para Android, iOS, macOS, y se encuentra en desarrollo la habilidad de realizar aplicaciones para Linux y Windows. 
-        </div>
-        <div>
-            <div class="sub-title">Ventajas</div>
-            <div class="text">
--Lenguaje familiar, fácil de entender
--Librerias básicas robustas
--Manejador de paquetes
--Compila a JavaScript para mayor compatibilidad
--Minimizacion de programas (borrar caracteres innecesarios del código fuente)
--dart2js realiza Tree Shaking para reducir el tamaño del código.
--La maquina virtual es muy rápida y utiliza código fuente, no necesita compilaciones extra
--Mixins, interfaces implícitas, “this”, interpolación de strings, funciones de una línea, noSuchMethod
--Reflection API completa
-            </div>
-            <div class="sub-title">Desventajas</div>
-            <div class="text">
--El lenguaje no ha madurado tanto como Java
--No contiene tantos paquetes como Node.js
--A comparación de JavaScript, este todavía no ha sido adoptado por muchos y no crece tan rápido como dicho lenguaje.                    
+
+    <nav id="navbar" class="navbar sticky-top navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#links" aria-controls="links" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="index.html">
+            <img src="img/logo.svg" width="87" height="26" alt="LearnIt">
+        </a>
+
+        <div class="collapse navbar-collapse" id="links">
+            <div class="navbar-nav text-center">
+                <a class="nav-item nav-link" href="#historia">Historia</a>
+                <a class="nav-item nav-link" href="#variables">Variables y Tipos</a>
+                <a class="nav-item nav-link" href="#expresiones">Expresiones</a>
+                <a class="nav-item nav-link" href="#estructuras">Extructuras de Control</a>
+                <a class="nav-item nav-link" href="#subprogramas">Subprogramas</a>
+                <a class="nav-item nav-link" href="#aplicacion">Aplicación de Ejemplo</a>
             </div>
         </div>
-        <div class="title">Expresiones</div>
-        <div>Dart posee operadores  
-            aritmeticos, relacionales y 
-            booleanas con la siguiente 
-            precedencia:
+    </nav>
+
+    <div class="content" data-target="#navbar">
+        <div id="historia">
+            <h3>Historia</h3>
+            <p>
+                Dart fue revelado en la conferencia GOTO en Aarhus, Dinamarca, del 10 al 12 de octubre del 2011. El proyecto fue fundado por Lars Bak y Kasper Lund. Los dos fundadores utilizan mucho JavaScript, mayormente utilizado para desarrollo web. La intención de Google con la creación de Dart es simplificar la creación de aplicaciones web mas complejas. Siguen mejorando el uso de JavaScript, pero eso no los detiene en encontrar nuevas soluciones. Dart es un lenguaje multiparadigma: programación funcional, programación imperativa, programación orientada a objetos y programación reflexiva. Permite el desarrollo de aplicaciones web, pero también permite desarrollo de aplicaciones para Android, iOS, macOS, y se encuentra en desarrollo la habilidad de realizar aplicaciones para Linux y Windows. 
+            </p>
+            <h6>Ventajas</h6>
+            <ul>
+                <li>Lenguaje familiar, fácil de entender.</li>
+                <li>Librerías básicas robustas.</li>
+                <li>Manejador de paquetes.</li>
+                <li>Compila a JavaScript para mayor compatibilidad.</li>
+                <li>Minimización de programas (borrar caracteres innecesarios del código fuente).</li>
+                <li>dart2js realiza Tree Shaking para reducir el tamaño del código.</li>
+                <li>La maquina virtual es muy rápida y utiliza código fuente, no necesita compilaciones extra.</li>
+                <li>Mixins, interfaces implícitas, “this”, interpolación de strings, funciones de una línea, noSuchMethod.</li>
+                <li>Reflection API completa.</li>
+              </ul>
+            <h6>Desventajas</h6>
+            <ul>
+                <li>El lenguaje no ha madurado tanto como Java.</li>
+                <li>No contiene tantos paquetes como Node.js.</li>
+                <li>A comparación de JavaScript, este todavía no ha sido adoptado por muchos y no crece tan rápido como dicho lenguaje.</li>
+              </ul>
         </div>
-        <img src="" alt="tabla de precedencia" class="tabla-precedencia">
-        <div>Sintaxis de Asignación</div>
+
+        <div id="variables">
+            <h3>Variables y Tipos</h3>
+            <p>El lenguaje Dart tiene soporte para los siguientes tipos de datos básicos:</p>
+            <dl>
+                <dt>Numbers</dt>
+                <dd>puedes elgir entre 'int' (valor entero) y 'double' (números de punto flotante).</dd>
+                <dt>Strings</dt>
+                <dd>palabra clave: String. Puedes representar un string usando comillas dobles ("Hola Mundo") o simples ('Hola Mundo').</dd>
+                <dt>Booleans</dt>
+                <dd>puedes declarar un booleano usando la palabra 'bool'. Solo dos objetos tienen este valor: 'true' y 'false'.</dd>
+                <dt>Lists</dt>
+                <dd>listas o arrays son colleciones de objetos. Para crear una, debes encerrar los objetos en '[ ]' y separar cada elemento por comas. La palabra clave para este tipo de dato es 'List'.</dd>
+                <dt>Sets</dt>
+                <dd>similar a List, la palabra clave para este tipo de dato es 'Set' y para crear una debes encerrar los objetos en '{ }' y separarlos por comas.</dd>
+                <dt>Maps</dt>
+                <dd>un map es un objeto que relaciones una clave con un valor, estos dos elementos puedes ser de cualquier tipo de dato. Su palabra clave es 'Map'. </dd>
+            </dl>
+            <h6>Reglas para crear identificadores</h6>
+            <ul>
+                <li>Los identificadores deben comenzar con una letra o un guión bajo.</li>
+                <li>Después del primer caracter puede haber cualquier combinación de letras, números y guiones bajos.</li>
+            </ul>
+            <h6>Formas de relacionar un tipo de dato a una variable</h6>
+            <ul>
+                <li>Dart es un lenguaje fuertemente tipado, lo que significa  cuando quieras declarar una variable, será necesario adjuntar el tipo de dato, de la siguiente manera: tipo de dato + identificador.</li>
+                <li>A pesar de esto, Dart también tiene la capacidad de inferir el tipo de dato. Por lo tanto, otra opción para la declaración de variables es usar el keyword 'var' en lugar del tipo de dato. </li>
+                <li>Por último, puedes utilizar la palabra clave 'dynamic', la cual sirve para decir que una variable no tiene un tipo específico.</li>
+            </ul>
+        </div>
+
+        <div id="expresiones">
+            
+        </div>
+
+        <div id="estructuras"> 
+
+        </div>
+
+        <div id="Subprogramas">
+
+        </div>
+
+        <div id="aplicacion">
+
+        </div>
+        
     </div>
-</body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>

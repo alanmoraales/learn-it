@@ -1,65 +1,56 @@
-body {
-    margin: 0px;
-    font-size: 18px;
+body {  
+    position: relative;
 }
-/* <span class="iconify" data-icon="mdi:window-close" data-inline="false"></span>*/
-.nav-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
 
-    font-size: 22px;
-    color: white;
-
-    background-color: #25639B;
-    padding: 1em;
-
-    padding-left: 40px;
-    padding-right: 40px;
+html {
+    height: 100%;
 }
-.menu-icon {
-    justify-self: end;
-    align-self: center;
-}
+
 .hero {
     background-image: url("../img/hero.jpeg");
-    background-position: center;
     background-size: cover;
-    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
 }
-.hero-grid {
 
-    background-color: rgb(0,0,0,0.5);
-    height: 300px;
+.hero-shadow {
+    background-color: rgb(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
 
     display: grid;
+    grid-template-rows: 1fr auto 1fr 1fr;
 
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto auto;
+    padding: 4em;
 
-    color:white;
+    align-items: center;
+    justify-items: center;
 
-    padding-left: 40px;
-    padding-right: 40px;
+    color: white;
 }
 
-.hero-title {
-    font-size: 36px;
-    grid-column-start: 1;
-    grid-column-end: 3;
-
+#hero-title {
+    font-size: 80px;
     align-self: flex-end;
 }
 
-.hero-description {
-    grid-column-start: 1;
-    grid-column-end: 3;
+#hero-sub {
+    font-size: 20px;
+    color: whitesmoke;
 }
 
-.button a {
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 1em;
-    background-color: #97C710;
+#hero-des {
+    padding-top: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.content {
+    padding: 4em;
+}
+
+#variables {
+    padding-top: 4em;
 }
